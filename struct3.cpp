@@ -12,12 +12,18 @@ struct Vector2D
 
   //funciones
   double norm(void); //Recide void porque la funcion es interna y ya conoce el x y el y, por tanto no hay que ponerlos para que los recida
- 
+
+  double angle(void); //Funcion angulo
 };
 
 double Vector2D::norm(void) //el Vector2D:: se debe poner para indicar que la funcion norm es una funcion de Vector2D y así pueda operar la "x" y la "y" OJO!!!
 {
   return std::sqrt(x*x + y*y);
+}
+
+double Vector2D::angle(void)
+{
+  return std::atan2(y,x); //funcion arcotangente para 2 variables, la encontramos viendo el man tan, 
 }
 
 int main (void)
@@ -28,6 +34,7 @@ int main (void)
   std::cout<<"a_x= "<<a.x<<std::endl;  //a.x permite acceder al valor de la variable"
   std::cout<<"a_y= " <<a.y<<std::endl;
   std::cout<<"|a|=  "<<a.norm()<<std::endl;
+  std::cout<<"angle(a)=  "<<a.angle()<<std::endl;
   
   return 0;
 }
